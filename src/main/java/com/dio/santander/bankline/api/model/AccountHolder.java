@@ -9,8 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="tab_correntista")
-public class Correntista {
+@Table(name="tab_accountHolder")
+public class AccountHolder {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -19,16 +19,16 @@ public class Correntista {
 	private String cpf;
 	
 	@Column(length = 60)
-	private String nome;
+	private String name;
 	
 	@Embedded 
-	private Conta conta;
+	private Account account;
 	
-	public Conta getConta() {
-		return conta;
+	public Account getAccount() {
+		return account;
 	}
-	public void setConta(Conta conta) {
-		this.conta = conta;
+	public void setAccount(Account account) {
+		this.account = account;
 	}
 	
 	public Integer getId() {
@@ -43,11 +43,11 @@ public class Correntista {
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
-	public String getNome() {
-		return nome;
+	public String getName() {
+		return name;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 	

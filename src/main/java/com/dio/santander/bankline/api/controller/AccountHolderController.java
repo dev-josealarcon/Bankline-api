@@ -9,29 +9,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.dio.santander.bankline.api.dto.NovaMovimentacao;
-import com.dio.santander.bankline.api.model.Movimentacao;
-import com.dio.santander.bankline.api.repository.MovimentacaoRepository;
-import com.dio.santander.bankline.api.service.MovimentacaoService;
-
+import com.dio.santander.bankline.api.dto.NewAccountHolder;
+import com.dio.santander.bankline.api.model.AccountHolder;
+import com.dio.santander.bankline.api.repository.AccountHolderRepository;
+import com.dio.santander.bankline.api.service.AccountHolderService;
 
 
 
 @RestController
-@RequestMapping("/movimentacoes")
-public class MovimentacaoController {
+@RequestMapping("/accountholders")
+public class AccountHolderController {
 	@Autowired
-	private MovimentacaoRepository repository;
+	private AccountHolderRepository repository;
 	
 	@Autowired
-	private MovimentacaoService service;
+	private AccountHolderService service;
 	
 	@GetMapping
-	public List<Movimentacao> findAll(){
+	public List<AccountHolder> findAll(){
 		return repository.findAll();
 	}
 	@PostMapping
-	public void save(@RequestBody NovaMovimentacao movimentacao) {
-		service.save(movimentacao);
+	public void save(@RequestBody NewAccountHolder accountHolder) {
+		service.save(accountHolder);
 	}
 }
